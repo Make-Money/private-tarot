@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<link rel="shortcut icon" href="http://m.zhanbushi.cn/tarot/images/favicon.ico">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<script type="text/javascript" src="/src/js/jquery.js"></script>
+<title>乐雅静塔罗占卜</title>
+
+<body>
+    <div class="container clearfix">
+        <div class="right-box">
+            <div class="gong">
+                <span>微信公众号</span>
+                <img src="/src/img/gong.jpg" alt="" />
+            </div>
+            <div class="weixin">
+                <span>塔罗师个人微信号</span>
+                <img src="/src/img/private.jpg" alt="" />
+            </div>
+        </div>
+        <div class="box">
+            <img id="titleImg" class="title scaleIn-500-0" src="/src/img/title.jpg">
+            <section class="scaleIn-500-250" style="min-height: 529.383px;">
+                <article id="homepage">
+                    <table border="0" id="introduceTable">
+                        <tbody>
+                            <tr class="fadeIn-500-750">
+                                <td>塔罗牌，由“TAROT”一词音译而来，它是西方古老占卜工具,中世纪起流行于欧洲，地位相当于中国的《周易》，其起源一直是个谜。
+                                </td>
+                            </tr>
+                            <tr>&nbsp;</tr>
+                            <tr>&nbsp;</tr>
+                            <tr class="fadeIn-500-750">
+                                <td>
+                                    <font style="color:red;">爱情、婚姻、事业运</font>，据塔罗牌意为你解析，帮你指明方向，让您的
+                                    <font style="color:red;">财运亨通、爱情美满！</font>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input id="startBtn" style="background-image: url(http://m.zhanbushi.cn/tarot/images/btnBg.png);" class="smallBtn_input fadeIn-500-1000" type="button" value="开始占卜" onclick="toQuestion()">
+                    <p class="footer-p fadeIn-500-1000">
+                        <br>天使塔罗牌协会（ACR）认证会员
+                        <br>
+                        <br>公众号：tarot1818
+                        <br>
+                        <br>人工占卜可加微信：taluopai1818
+                    </p>
+                </article>
+                <article id="question" style="display:none;">
+                    <h1 class="title_h1 toRightIn-350-0">步骤一：提出问题</h1>
+                    <table id="introduce" class="introduce_table">
+                        <tbody>
+                            <tr class="toRightIn-350-100">
+                                <td>下面给您智能选择牌阵</td>
+                            </tr>
+                            <tr class="toRightIn-350-200">
+                                <td>请根据你的实际情况回答问题哦</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="q_card"></div>
+                    <div id="q_choice">
+                        <p id="questionP" class="toRightIn-350-300 fadeIn-200-0"><b>问：</b>您想要占卜哪方面的问题？</p>
+                        <div class="select-selection-div toRightIn-350-400" style="display: block;">
+                            <div id="div2" style="display: block; border-bottom: 1px solid rgb(119, 66, 46);">
+                                <label id="input2" type="text" onclick="answer(0)" class="fadeIn-200-0">1.恋爱情感，解读我和TA(占卜爱情)</label>
+                            </div>
+                            <div id="div3" style="border-bottom: 0px; display: block;">
+                                <label id="input3" type="text" onclick="answer(1)" class="fadeIn-200-0">2.自身发展，解读我自己(事业学业)</label>
+                            </div>
+                            <div id="div4" style="display:none">
+                                <label id="input4" type="text" onclick="answer(2)" class="start fadeIn-200-0">选项</label>
+                            </div>
+                            <div id="div5" style="display:none">
+                                <label id="input5" type="text" onclick="answer(3)" class="start fadeIn-200-0">选项</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="q_information" style="display:none;">
+                        <table class="introduce_table">
+                            <tbody>
+                                <tr>
+                                    <td>请想清楚你想要占卜的问题</td>
+                                </tr>
+                                <tr>
+                                    <td>把心里想的问题以及问题背景
+                                        <br>写到下面的文本框内</td>
+                                </tr>
+                                <tr>
+                                    <td>不写清楚背景的话
+                                        <br>会增大占卜师解牌的误差哦</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <div id="q_age">
+                            <h2>年龄：</h2>
+                            <div>
+                                <select id="age">
+                                    <option>15岁以下</option>
+                                    <option>16 - 18岁</option>
+                                    <option>19 - 22岁</option>
+                                    <option>23 - 28岁</option>
+                                    <option>29 - 36岁</option>
+                                    <option>37 - 45岁</option>
+                                    <option>46岁以上</option>
+                                </select>
+                            </div>
+                            <h2>问题：</h2>
+                            <textarea id="questionTxt" placeholder="请填入你想要占卜的问题~"></textarea>
+                            <h2>背景：</h2>
+                            <textarea id="backgroundTxt" placeholder="请填入你问题的相关背景~"></textarea>
+                        </div>
+                        <br>
+                        <input style="background-image: url(http://m.zhanbushi.cn/tarot/images/btnBg.png);" id="smallBtn_input" class="smallBtn_input" type="button" value="开始洗牌" onclick="toShuffle()">
+                    </div>
+                    <p class="footer-p fadeIn-500-1000">
+                        <br>天使塔罗牌协会（ACR）认证会员
+                        <br>
+                        <br>公众号：tarot1818
+                        <br>
+                        <br>人工占卜可加微信：taluopai1818
+                    </p>
+                </article>
+                <article id="shuffle" style="display:none;">
+                    <div id="s_title">
+                        <p class="title-p">步骤二：洗布牌阵</p>
+                    </div>
+                    <div class="s_cardBox">
+                        <div class="xp1"><img class="pb-image card1" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp2"><img class="pb-image card2" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp3"><img class="pb-image card3" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp4"><img class="pb-image card4" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp5"><img class="pb-image card5" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp6"><img class="pb-image card6" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp7"><img class="pb-image card7" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp8"><img class="pb-image card8" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp9"><img class="pb-image card9" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp10"><img class="pb-image card10" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp11"><img class="pb-image card11" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp12"><img class="pb-image card12" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp13"><img class="pb-image card13" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp14"><img class="pb-image card14" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp15"><img class="pb-image card15" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp16"><img class="pb-image card16" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp17"><img class="pb-image card17" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp18"><img class="pb-image card18" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp19"><img class="pb-image card19" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp20"><img class="pb-image card20" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp21"><img class="pb-image card21" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                        <div class="xp22"><img class="pb-image card22" style="background: url(http://m.zhanbushi.cn/tarot/images/pb.jpg);background-size: 100%;"></div>
+                    </div>
+                    <p class="footer-p fadeIn-500-1000">
+                        <br>天使塔罗牌协会（ACR）认证会员
+                        <br>
+                        <br>公众号：tarot1818
+                        <br>
+                        <br>人工占卜可加微信：taluopai1818
+                    </p>
+                </article>
+                <article id="turn" style="display:none;">
+                    <div id="t_tips" class="scaleIn-200-0">
+                        <h1 class="title_h1">步骤三：翻牌</h1>
+                        <p id="turnTips">点击塔罗牌进行翻牌和解读
+                            <br><strong>（翻牌要按顺序哦！）</strong></p>
+                    </div>
+                    <br>
+                    <div id="t_cardList">
+                        <div class="scaleIn-200-100">
+                            <h2>请先翻我</h2><img src="http://m.zhanbushi.cn/tarot/images/pb.jpg" onclick="turnCard(this,1)">
+                            <h1>1</h1>
+                            <p></p>
+                        </div>
+                        <div class="scaleIn-200-200">
+                            <h2>请先翻我</h2><img src="http://m.zhanbushi.cn/tarot/images/pb.jpg" onclick="turnCard(this,2)">
+                            <h1>2</h1>
+                            <p></p>
+                        </div>
+                        <div class="scaleIn-200-300">
+                            <h2>请先翻我</h2><img src="http://m.zhanbushi.cn/tarot/images/pb.jpg" onclick="turnCard(this,3)">
+                            <h1>3</h1>
+                            <p></p>
+                        </div>
+                        <div class="scaleIn-200-400">
+                            <h2>请先翻我</h2><img src="http://m.zhanbushi.cn/tarot/images/pb.jpg" onclick="turnCard(this,4)">
+                            <h1>4</h1>
+                            <p></p>
+                        </div>
+                        <div class="scaleIn-200-500">
+                            <h2>请先翻我</h2><img src="http://m.zhanbushi.cn/tarot/images/pb.jpg" onclick="turnCard(this,5)">
+                            <h1>5</h1>
+                            <p></p>
+                        </div>
+                        <div class="scaleIn-200-600">
+                            <h2>请先翻我</h2><img src="http://m.zhanbushi.cn/tarot/images/pb.jpg" onclick="turnCard(this,6)">
+                            <h1>6</h1>
+                            <p></p>
+                        </div>
+                    </div>
+                    <p class="footer-p fadeIn-500-1000">
+                        <br>天使塔罗牌协会（ACR）认证会员
+                        <br>
+                        <br>公众号：tarot1818
+                        <br>
+                        <br>人工占卜可加微信：taluopai1818
+                    </p>
+                </article>
+                <article id="result" style="display:none;">
+                    <div class="r_introduce">
+                        <h1 class="title_h1 scaleIn-200-0">步骤四：解牌</h1>
+                        <p id="introduceP" class="scaleIn-200-100">
+                            <br>以下是你本次塔罗牌占卜的牌面</p>
+                        <p class="scaleIn-200-200">把本页面截图
+                            <br>发给「星运志」的签约占卜师吧</p>
+                        <p class="scaleIn-200-300">占卜师们会根据你的问题和牌面来为您进行人工解读哦！</p>
+                    </div>
+                    <div id="r_information" class="scaleIn-200-400">
+                        <p id="resultAge"></p>
+                        <p id="resultBg"></p>
+                    </div>
+                    <div id="r_result" class="scaleIn-200-500">
+                        <p id="resultQuestion" class="scaleIn-200-600"></p>
+                        <hr>
+                        <table id="resultTable" class="scaleIn-200-700">
+                        </table>
+                        <hr>
+                        <p id="resultPz" class="scaleIn-200-800"></p>
+                    </div>
+                    <div id="r_wechat" class="scaleIn-200-900"></div>
+                </article>
+                <div id="turn-loading">
+                    <div class="cell">
+                        <div class="card">
+                            <span class="heartbeat-loader">翻牌中…</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="image" id="myInfo">
+                    <div class="gong">
+                        <img src="/src/img/gong.jpg" alt="" />
+                    </div>
+                    <div class="weixin">
+                        <img src="/src/img/weixin.jpg" alt="" />
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- script -->
+    <script type="text/javascript">
+    var Path = "http://m.zhanbushi.cn/tarot/";
+    </script>
+    <script type="text/javascript" src="/src/js/function.js"></script>
+</body>
+
+</html>

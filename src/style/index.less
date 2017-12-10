@@ -1,0 +1,121 @@
+html {
+	font-size: 14px;
+	height: 100%;
+  	/* font-family: Microsoft YaHei; */
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+	list-style-type:none;
+}
+
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both;
+  height: 0;
+}
+.clearfix {
+  zoom: 1;
+}
+
+.ov{
+	overflow: hidden;
+}
+
+.pull-right{
+	float: right;
+}
+
+.page-english{
+
+	.container{
+		margin: 0 auto;
+		width: 1140px;
+	}
+
+	.gray{
+		background: #f1f1f1;
+	}
+
+	.header{
+		padding: 8px 0;
+
+		.nav{
+			position: relative;
+			margin-top: -8px;
+
+			a{
+				position: relative;
+				display: inline-block;
+				padding: 8px 10px;
+				background: #fff;
+
+				&.hover{
+					z-index: 10;
+					border-left: 1px solid #ccc;
+					border-right: 1px solid #ccc;
+				}
+			}
+		}
+		ul{
+			position: absolute;
+			right: 0;
+			top: 28px;
+			padding: 0 8px;
+			border: 1px solid #ccc;
+			background: #fff;
+			z-index: 1;
+
+			li{
+				padding: 12px 8px;
+
+				&+&{
+					border-top: 1px solid #ccc;
+				}
+			}
+		}
+	}
+
+	.slider{
+		height: 450px;
+		background: #000;
+	}
+
+	.curriculum{
+		height: 834px;
+	}
+
+	.joy{
+		height: 570px;
+		background: #e70012;
+	}
+
+	.school{
+		height: 1046px;
+	}
+
+	.faq{
+		height: 834px;
+	}
+
+	.comfortable{
+		height: 746px;
+	}
+
+	.contact{
+		height: 776px;
+	}
+
+	.ad{
+	  height: 60px;
+	  background: #4c4c4c;
+	}
+
+	.copyright{
+	  height: 60px;
+	  background: #333;
+	}
+
+}
