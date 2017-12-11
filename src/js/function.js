@@ -260,11 +260,16 @@ function trunInit() {
 
 function turnCard(obj, num) {
     if (num == flag) {
+        $("#turn-loading").css('display', 'flex');
         objBuffer = obj;
         $.post(Path + "getData/getThisResult.php", { result: getCookie("result" + getCookie("type")), index: num }, function(data) {
             var output = eval(data);
             $("#t_cardList").children(":nth-child(" + (flag - 1) + ")").children("img").addClass("fp" + output[0] + "_" + output[1]);
-            setTimeout('$("#t_cardList").children(":nth-child(' + (flag - 1) + ')").children("img").attr("src",Path + "images/card/' + output[0] + "_" + output[1] + '.jpg")', 500);
+            var t_img = $("#t_cardList").children(":nth-child(" + (flag - 1) + ")").children("img");
+            t_img.attr("src", Path + "images/card/" + output[0] + "_" + output[1] + ".jpg");
+            t_img.load(function(){
+              $("#turn-loading").css('display', 'none');
+            });
         });
 
         flag++;

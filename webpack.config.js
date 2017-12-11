@@ -1,6 +1,11 @@
 var path              = require('path')
 var webpack           = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+
+// multiple extract instances
+let extractLESS = new ExtractTextPlugin('[name].less');
 
 function resolve (dir) {
   //
@@ -31,8 +36,10 @@ module.exports = {
 	},
   module: {
       loaders: [
-          {test: /\.css$/, loader: 'style-loader!css-loader'},
-          {test: /\.less$/,loader: 'style-loader!css-loader!less-loader?strictMath&noIeCompat'},
+          {
+            test: /\.(less|css)$/,
+            loader:  ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader!less-loader' })
+          },
           {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url-loader',
@@ -50,6 +57,7 @@ module.exports = {
       'process.env.NODE_ENV': 'development'
     }),
     new webpack.HotModuleReplacementPlugin(),
+    extractLESS,
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
