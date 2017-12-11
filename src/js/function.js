@@ -118,6 +118,7 @@ function answer(select) {
 
 function toShuffle() {
     $("#smallBtn_input").val("洗牌中...");
+    $("#turn-loading").css('display', 'flex');
     $.post(Path + "getData/getOldResult.php", { date: getCookie("date" + getCookie("type")) }, function(data) {
         if (data) {
             alert("你今天已经对这种类型的问题进行了一次占卜，我们将为您直接跳到上次的占卜结果页面，占卜第二次就不准了哟！");
@@ -253,6 +254,7 @@ function trunInit() {
             document.getElementById("t_cardList").getElementsByTagName("p")[i - 1].innerHTML = data[i][1];
         }
         document.getElementById("t_cardList").style.display = "block";
+        $("#turn-loading").css('display', 'none');
     });
 }
 

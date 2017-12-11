@@ -36,7 +36,7 @@ body {
         text-align: center;
     }
     #introduceTable {
-        padding: 20px;
+        padding: 0 20px 20px;
         line-height: 1.5;
     }
     #question {
@@ -47,11 +47,13 @@ body {
         border-color: #ddd;
     }
     #questionTxt {
+        padding: 6px;
         width: 300px;
         height: 150px;
         border-color: #ddd;
     }
     #backgroundTxt {
+        padding: 6px;
         width: 300px;
         height: 150px;
         border-color: #ddd;
@@ -75,6 +77,12 @@ body {
         left: 0;
         right: 0;
         bottom: 0;
+        display: none;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        background-color: rgba(0,0,0,0.4);
         .cell {
             .heartbeat-loader:not(:required) {
                 -moz-animation: heartbeat-loader 1300ms ease 0s infinite normal;
@@ -126,53 +134,76 @@ body {
                 height: 12px;
             }
         }
-        .smallBtn_input {
-            padding: 10px;
-            font-size: 18px;
-            color: #fff;
-            border: 0 none;
-        }
-        .right-box {
-            display: none;
-        }
-        .select-selection-div {
-            padding: 0 10px;
-            background: #fff;
-            border-radius: 5px;
+    }
+    .smallBtn_input {
+        padding: 10px;
+        font-size: 18px;
+        color: #fff;
+        border: 0 none;
+    }
+    .right-box {
+        display: none;
+    }
+    .select-selection-div {
+        padding: 0 10px;
+        background: #fff;
+        border-radius: 5px;
+        >* {
+            -webkit-tap-highlight-color: rgba(74, 92, 202, 0.3);
             >* {
+                display: block;
+                padding: 10px 0;
                 -webkit-tap-highlight-color: rgba(74, 92, 202, 0.3);
-                >* {
-                    display: block;
-                    padding: 10px 0;
-                    -webkit-tap-highlight-color: rgba(74, 92, 202, 0.3);
-                    &:hover {
-                        cursor: pointer;
-                    }
+                &:hover {
+                    cursor: pointer;
                 }
             }
         }
-        .footer-p {
-            margin: 0 auto;
-            width: 250px;
-        }
-        .box {
-            position: relative;
-            overflow: auto;
-            .image {
-                overflow: hidden;
-                >* {
-                    width: 50%;
-                    float: left;
+    }
+    .footer-p {
+        margin: 0 auto;
+        width: 250px;
+    }
+    .box {
+        position: relative;
+        overflow: auto;
+        .image {
+            overflow: hidden;
+            >* {
+                width: 50%;
+                float: left;
 
-                    img {
-                        width: 100%;
-                    }
+                img {
+                    width: 100%;
                 }
             }
         }
     }
     .right-box {
         display: none;
+    }
+    .footer-p {
+        padding: 0 20px 10px;
+    }
+    #age {
+        padding: 5px 0 6px;
+    }
+    #myInfo {
+        overflow: hidden;
+        >*{
+            float: left;
+            width: 50%;
+            >*{
+                text-align: center;
+                padding: 0 20px;
+            }
+            img{
+                width: 100%;
+            }
+        }
+    }
+    #t_tips {
+        padding: 0 20px;
     }
 }
 /* 大于1000 PC */
